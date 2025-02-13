@@ -1,65 +1,245 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سایت مشابه دیجی کالا</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <h1>لوگوی سایت</h1>
+      </div>
+      <div class="search">
+        <input type="text" placeholder="جستجو در سایت">
+        <button>جستجو</button>
+      </div>
+      <div class="cart">
+        <a href="#">سبد خرید</a>
+      </div>
+    </div>
+  </header>
 
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll site to Pages
+  <!-- Navigation -->
+  <nav>
+    <ul class="container nav-list">
+      <li><a href="#">خانه</a></li>
+      <li><a href="#">محصولات</a></li>
+      <li><a href="#">تخفیف‌ها</a></li>
+      <li><a href="#">درباره ما</a></li>
+      <li><a href="#">تماس با ما</a></li>
+    </ul>
+  </nav>
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+  <!-- Main Content -->
+  <main class="container">
+    <!-- بنر اصلی -->
+    <section class="banner">
+      <img src="banner.jpg" alt="بنر اصلی">
+    </section>
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    <!-- بخش محصولات -->
+    <section class="products">
+      <h2>جدیدترین محصولات</h2>
+      <div class="product-grid">
+        <!-- نمونه محصول 1 -->
+        <div class="product">
+          <img src="product1.jpg" alt="محصول 1">
+          <h3>نام محصول 1</h3>
+          <p class="price">1,000,000 تومان</p>
+          <button>افزودن به سبد خرید</button>
+        </div>
+        <!-- نمونه محصول 2 -->
+        <div class="product">
+          <img src="product2.jpg" alt="محصول 2">
+          <h3>نام محصول 2</h3>
+          <p class="price">2,500,000 تومان</p>
+          <button>افزودن به سبد خرید</button>
+        </div>
+        <!-- نمونه محصول 3 -->
+        <div class="product">
+          <img src="product3.jpg" alt="محصول 3">
+          <h3>نام محصول 3</h3>
+          <p class="price">750,000 تومان</p>
+          <button>افزودن به سبد خرید</button>
+        </div>
+        <!-- نمونه محصول 4 -->
+        <div class="product">
+          <img src="product4.jpg" alt="محصول 4">
+          <h3>نام محصول 4</h3>
+          <p class="price">1,200,000 تومان</p>
+          <button>افزودن به سبد خرید</button>
+        </div>
+      </div>
+    </section>
+  </main>
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-container">
+      <p>تمامی حقوق محفوظ است © 2025</p>
+      <ul class="footer-links">
+        <li><a href="#">شرایط استفاده</a></li>
+        <li><a href="#">حریم خصوصی</a></li>
+        <li><a href="#">سوالات متداول</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+/* ریست استایل اولیه */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-jobs:
-  # Build job
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Ruby
-        # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
-        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
-        with:
-          ruby-version: '3.1' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          cache-version: 0 # Increment this number if you need to re-download cached gems
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: production
-      - name: Upload artifact
-        # Automatically uploads an artifact from the './_site' directory by default
-        uses: actions/upload-pages-artifact@v3
+/* استایل دهی به کانتینر اصلی */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+/* هدر */
+header {
+  background: #f8f8f8;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  color: #333;
+}
+
+.search input {
+  padding: 5px;
+  width: 200px;
+}
+
+.search button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cart a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* نوار منو */
+nav {
+  background: #333;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list li {
+  margin: 0 15px;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 0;
+  display: block;
+}
+
+/* بنر اصلی */
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+}
+
+/* بخش محصولات */
+.products {
+  margin: 20px 0;
+}
+
+.products h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.product h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.product .price {
+  margin-bottom: 10px;
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.product button {
+  padding: 8px 15px;
+  background: #e91e63;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* فوتر */
+footer {
+  background: #f8f8f8;
+  padding: 15px 0;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.footer-container p {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-links li {
+  margin: 0 10px;
+}
+
+.footer-links li a {
+  text-decoration: none;
+  color: #333;
+}
